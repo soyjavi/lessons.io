@@ -7,7 +7,7 @@ C = require '../constants'
 
 User = new Schema
   mail: type: String, unique: true
-  role: type: Number, default: C.USER.DEFAULT
+  role: type: Number, default: C.USER.TYPE.CUSTOMER
   username: type: String, trim: true
   name: type: String
   image: type: String, default: 'image.png'

@@ -5,7 +5,6 @@ Schema = require('zenserver').Mongoose.Schema
 db = require('zenserver').Mongo.connections.primary
 
 Comment = new Schema
-  _id: type: String, unique: true, default: shortId.generate
   user: type: Schema.ObjectId, ref: 'User'
   course: type: Schema.ObjectId, ref: 'Course'
   lesson: type: Schema.ObjectId, ref: 'lesson'
