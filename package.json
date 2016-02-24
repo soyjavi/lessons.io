@@ -1,0 +1,24 @@
+{
+  "name": "lessons.io",
+  "version": "0.0.1",
+  "description": "Lessons.ionpm i",
+  "homepage": "http://soyjavi.com",
+  "author": "Javi Jimenez <javi.jimenez.villar@gmail.com>",
+  "dependencies": {
+    "coffee-script": "*",
+    "zenserver": "*"
+  },
+  "devDependencies": {
+    "shortid": "^2.2.2",
+    "stripe": "^3.3.4",
+    "zenrequest": "*"
+  },
+  "scripts": {
+    "start": "npm run server",
+    "server": "nodemon zen.js zen development",
+    "test": "node zen.request.js zen development"
+  },
+  "engines": {
+    "node": "*"
+  }
+}
