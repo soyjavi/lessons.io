@@ -9,7 +9,7 @@ module.exports = (request, response, redirect = false, admin = false) ->
   token = request.session
   if token
     filter = token: token, active: true
-    filter.type = C.USER.TYPE.ADMIN if admin
+    filter.role = C.USER.TYPE.ADMIN if admin
     User.search(filter, limit = 1).then (error, session) ->
       unless session?
         if redirect then promise.done true else do response.unauthorized

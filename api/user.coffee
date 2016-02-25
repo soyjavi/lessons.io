@@ -11,12 +11,12 @@ module.exports = (zen) ->
   zen.post '/api/signup', (request, response) ->
     if request.required ['mail', 'password']
       Hope.chain([ ->
-        User.search type: C.USER.TYPE.ADMIN
+        User.search role: C.USER.TYPE.ADMIN
       , (error, users) ->
         if users.length > 0
-          request.parameters.type = C.USER.TYPE.STUDENT
+          request.parameters.role = C.USER.TYPE.STUDENT
         else
-          request.parameters.type = C.USER.TYPE.ADMIN
+          request.parameters.role = C.USER.TYPE.ADMIN
         User.signup request.parameters
       ]).then (error, @user) =>
         return response.conflict() if error?
