@@ -1,8 +1,3 @@
-# -- General Info --------------------------------------------------------------
-host    : localhost
-port    : 8888
-timezone: Europe/Amsterdam
-
 # -- Environment ---------------------------------------------------------------
 environment: development
 
@@ -17,22 +12,22 @@ api:
 # -- session -------------------------------------------------------------------
 session:
   # Cookie Request
-  cookie        : lessons-io-cookie
-  domain        : ""
-  path          : "/"
-  expire        : 3600 #seconds
+  cookie: lessons-io-cookie
+  domain: ""
+  path: "/"
+  expire: 3600 #seconds
   # HTTP Header
-  authorization : lessons-io-auth
+  authorization: authorization
   # secret for session crypto
-  secret        : zeniscool
+  secret: zeniscool
 
 # -- CORS Properties -----------------------------------------------------------
 headers:
-  # Access-Control-Allow-Origin: "*"
-  Access-Control-Allow-Origin     : "http://localhost:8000"
+  Access-Control-Allow-Origin: "*"
+  # Access-Control-Allow-Origin: "http://localhost:8000"
   Access-Control-Allow-Credentials: true
-  Access-Control-Allow-Methods    : GET,PUT,POST,DELETE,OPTIONS
-  Access-Control-Max-Age          : 1
+  Access-Control-Allow-Methods: GET,PUT,POST,DELETE,OPTIONS
+  Access-Control-Max-Age: 1
   Access-Control-Allow-Headers:
     - Accept
     - Accept-Version

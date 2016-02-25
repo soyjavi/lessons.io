@@ -1,0 +1,168 @@
+# -- General Info --------------------------------------------------------------
+host: localhost
+port: 8080
+
+# ------------------------------------------------------------------------------
+# Tests
+# ------------------------------------------------------------------------------
+tests:
+  - user
+  # - collection
+  # - product
+  # - review
+  # - discount
+  # - order
+  # - page
+
+# -- USERS ---------------------------------------------------------------------
+USERS:
+  ADMINS:
+    - mail                : a1@lessons.io
+      password            : a1
+      name                : Owner nº1
+      avatar              : http://soyjavi.com/avatar.jpg
+
+  STUDENTS:
+    - mail                : s1@lessons.io
+      password            : s1
+      name                : User nº1
+    - mail                : s2@lessons.io
+      password            : s2
+      name                : User nº2
+
+# # -- COLLECTIONS ---------------------------------------------------------------
+# COLLECTIONS:
+#   - title               : women
+#     description         : Women Clothing
+#     image               : http://
+#     search:
+#       page_title        : women
+#       meta_description  : 80cents women clothing
+#       url_handle        : organic_food
+#     visibility          : true
+#   - title               : men
+#     description         : men Clothing
+#     image               : http://
+#     search:
+#       page_title        : men
+#       meta_description  : 80cents men clothing
+#       url_handle        : organic_food
+#     visibility          : true
+#   - title               : kids
+#     description         : Kids Clothing
+#     image               : http://
+#     search:
+#       page_title        : kids
+#       meta_description  : 80cents kids clothing
+#       url_handle        : organic_food
+#     visibility          : false
+#   - title               : accesories
+#     description         : Accesories
+#     image               : http://
+#     search:
+#       page_title        : accesories
+#       meta_description  : 80cents accesories
+#       url_handle        : organic_food
+#     visibility          : true
+
+# # -- PRODUCTS ------------------------------------------------------------------
+# PRODUCTS:
+#   - title               : Handmade Cotton Dress
+#     description         : Lorem ipsum...
+#     type                : dress
+#     vendor              : Kosita Wear.
+#     price               : 10.95
+#     compare_at_price    : 14.95
+#     stock               : 100
+#     barcode             : none
+#     tax                 : true
+#     requires_shipping   : true
+#     weight              : 1
+#     sizes               : XS, S, M, L, D
+#     colors              : white
+#     materials           : cotton
+#     default_image       : http://4
+#     images              :
+#       - "http://1"
+#       - "http://2"
+#       - "http://3"
+#     collection          : women
+#     tags                : dress, cotton, women
+#     search:
+#       page_title        : Handmade Cotton Dress
+#       meta_description  : lorem_ipsum
+#       url_handle        : dress
+#     visibility          : true
+#     highlight           : true
+#   - title               : Fisherman Pants
+#     description         : lorem ipsum....
+#     type                : pant
+#     price               : 16.95
+#     collection          : men
+#     visibility          : true
+#   - title               : Ring
+#     description         : lorem ipsum....
+#     type                : accesories
+#     price               : 6.95
+#     collection          : women
+#     visibility          : false
+
+# # -- REVIEWS -------------------------------------------------------------------
+# REVIEWS:
+#   - title               : Amazing product...
+#     description         : I like it...
+#     rating              : 4
+#   - description         : The quality is poor...
+#     rating              : 1
+
+# # -- ORDERS --------------------------------------------------------------------
+# ORDERS:
+#   - comment             : Need a tracking number.
+#     shipping:
+#       contact           : Javi
+#       address           : Ratchamondoen soi 5
+#       city              : Chiang Mai
+#       zipcode           : "00001"
+#       country           : thailand
+#       tel               : 095903940320
+#     billing:
+#       contact           : Zetapath LTD.
+#     lines:
+#       - quantity        : 1
+#         size            : S
+#         color           : black
+#       - quantity        : 2
+
+# # -- PAGES ---------------------------------------------------------------------
+# PAGES:
+#   - title               : About us
+#     content             : About us lorem ipsum...
+#     header              : true
+#     visibility          : true
+#     search:
+#       page_title        : About us
+#       meta_description  : about us...
+#       url_handle        : about
+#   - title               : Faqs
+#     content             : Faqs lorem ipsum...
+#     visibility          : true
+#   - title               : Order
+#     content             : Order lorem ipsum...
+#     visibility          : false
+#   - title               : Tracking
+#     content             : About us lorem ipsum...
+#     visibility          : true
+#   - title               : Contact
+#     content             : About us lorem ipsum...
+#     visibility          : true
+
+# # -- DISCOUNTS -----------------------------------------------------------------
+# DISCOUNTS:
+#   - description         : 5% discount in all store
+#     percent             : 5
+#   - description         : 10% discount in a determinate category
+#     percent             : 10
+#     collection_id       : true
+#   - description         : 5 currency discount in a determinate product
+#     amount              : 5
+#     product             : true

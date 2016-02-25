@@ -9,6 +9,8 @@
     "zenserver": "*"
   },
   "devDependencies": {
+    "jwt-simple": "^0.4.1",
+    "password-hash": "^1.2.2",
     "shortid": "^2.2.2",
     "stripe": "^3.3.4",
     "zenrequest": "*"

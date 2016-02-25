@@ -4,8 +4,8 @@ module.exports =
 
   USER:
     TYPE:
-      CUSTOMER: 0
-      OWNER: 1
+      ADMIN: 0
+      STUDENT: 1
 
   ORDER:
     STATE:

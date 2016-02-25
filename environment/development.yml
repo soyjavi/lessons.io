@@ -1,13 +1,17 @@
 # -- General Info --------------------------------------------------------------
-host    : localhost
-port    : 8000
+host: localhost
+port: 8080
 timezone: Europe/Amsterdam
+
+# -- Authentication ------------------------------------------------------------
+token: HunLauSchDepReg
+encoding: HS512
 
 # -- Services ------------------------------------------------------------------
 mongo:
-  - name    : primary
-    host    : 127.0.0.1
-    port    : 27017
-    db      : lessons-io
-    user    : user
+  - name: primary
+    host: 127.0.0.1
+    port: 27017
+    db: lessons-io
+    user: user
     # password: password
