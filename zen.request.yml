@@ -9,6 +9,7 @@ tests:
   - user
   - course
   - lesson
+  - comment
 
 # -- USERS ---------------------------------------------------------------------
 USERS:
@@ -58,3 +59,11 @@ LESSONS:
   - title                 : Using ReactFire to Add Data Persistence
     description           : lorem ipsum...
     image                 : http://
+
+# -- LESSONS ---------------------------------------------------------------
+COMMENTS:
+  - text                  : In this video, we introduce our sample application and discuss our objectives for this series on React.js.
+  - text                  : github repo with commit history corresponding to lessons? nice touch
+  - text                  : Thanks!
+  - text                  : Hi Tyler, these are really great. What IDE are you using? Thanks much!
+  - text                  : Thanks Jason! Sublime with Brogrammer Theme with Oceanic Next Color Scheme.
