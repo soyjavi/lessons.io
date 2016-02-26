@@ -4,6 +4,8 @@ shortId = require('shortid')
 Hope = require('zenserver').Hope
 Schema = require('zenserver').Mongoose.Schema
 db = require('zenserver').Mongo.connections.primary
+search = require './modules/search'
+findAndUpdate = require './modules/findAndUpdate'
 
 Course = new Schema
   _id: type: String, unique: true, default: shortId.generate
@@ -12,7 +14,7 @@ Course = new Schema
   description: type: String
   image: type: String
   source: type: String
-  price: type: Number
+  price: type: Number, default: 0
   lessons: [type: Schema.ObjectId]
   active: type: Boolean, default: true
   updated_at: type: Date
@@ -26,22 +28,10 @@ Course.statics.create = (values) ->
   promise
 
 Course.statics.search = (query, limit = 0, page = 1, populate = '', sort = updated_at: 'desc') ->
-  promise = new Hope.Promise()
-  range =  if page > 1 then limit * (page - 1) else 0
-  @find(query).skip(range).limit(limit).populate(populate).sort(sort).exec (error, value) ->
-    if limit is 1 and not error
-      error = code: 402, message: 'Not found.' if value.length is 0
-      value = value[0]
-    promise.done error, value
-  promise
+  search @, query, limit, page, populate, sort
 
 Course.statics.findAndUpdate = (filter, values) ->
-  promise = new Hope.Promise()
-  # -- Specific formats
-  values.updated_at = new Date()
-  @findOneAndUpdate filter, values, (error, value) ->
-    promise.done error, value
-  promise
+  findAndUpdate @, filter, values
 
 # -- Instance methods ----------------------------------------------------------
 Course.methods.delete = ->

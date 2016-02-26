@@ -6,6 +6,8 @@ db = require('zenserver').Mongo.connections.primary
 PassHash = require 'password-hash'
 C = require '../constants'
 token = require '../token'
+search = require './modules/search'
+findAndUpdate = require './modules/findAndUpdate'
 
 User = new Schema
   mail: type: String, unique: true
@@ -47,22 +49,11 @@ User.statics.login = (values) ->
       promise.done error, user
   promise
 
-User.statics.search = (query, limit = 0, page = 1, sort = created_at: 'desc') ->
-  promise = new Hope.Promise()
-  range =  if page > 1 then limit * (page - 1) else 0
-  @find(query).skip(range).limit(limit).sort(sort).exec (error, value) ->
-    if limit is 1 and not error
-      error = code: 402, message: 'User not found.' if value.length is 0
-      value = value[0]
-    promise.done error, value
-  promise
+User.statics.search = (query, limit = 0, page = 1, populate = '', sort = created_at: 'desc') ->
+  search @, query, limit, page, populate, sort
 
-User.statics.findAndUpdate = (filter, parameters) ->
-  promise = new Hope.Promise()
-  parameters.updated_at = new Date()
-  @findOneAndUpdate filter, parameters, (error, value) ->
-    promise.done error, value
-  promise
+User.statics.findAndUpdate = (filter, values) ->
+  findAndUpdate @, filter, values
 
 # -- Instance methods ----------------------------------------------------------
 User.methods.parse = ->
