@@ -8,6 +8,7 @@ port: 8080
 tests:
   - user
   - course
+  - lesson
 
 # -- USERS ---------------------------------------------------------------------
 USERS:
@@ -38,3 +39,22 @@ COURSES:
     description           : LoL ;)
     image                 : http://
     price                 : 1.95
+
+# -- LESSONS ---------------------------------------------------------------
+LESSONS:
+  - title                 : App Notetaker Introduction
+    description           : lorem ipsum...
+    image                 : http://
+  - title                 : App Up and Running with React and Webpack
+    description           : lorem ipsum...
+    image                 : http://
+  - title                 : Basic Routing with React Router
+    description           : lorem ipsum...
+    image                 : http://
+    price                 : 1.95
+  - title                 : State, Props, and Thinking in React
+    description           : lorem ipsum...
+    image                 : http://
+  - title                 : Using ReactFire to Add Data Persistence
+    description           : lorem ipsum...
+    image                 : http://
