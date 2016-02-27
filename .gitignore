@@ -1,2 +1,4 @@
 node_modules
 zen.error.json
+static/*.css
+static/*.js
