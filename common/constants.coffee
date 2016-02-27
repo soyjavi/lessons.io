@@ -7,13 +7,10 @@ module.exports =
       ADMIN: 0
       STUDENT: 1
 
-  ORDER:
+  PURCHASE:
     STATE:
-      SHOPPING: 0
-      PURCHASED: 1
-      PROCESSED: 2
-      SENT: 3
-      FINISHED: 4
+      UNPAID: 0
+      PAID: 1
 
   STRIPE:
     KEY: "sk_live_?"

@@ -10,6 +10,7 @@ tests:
   - course
   - lesson
   - comment
+  - purchase
 
 # -- USERS ---------------------------------------------------------------------
 USERS:
@@ -67,3 +68,9 @@ COMMENTS:
   - text                  : Thanks!
   - text                  : Hi Tyler, these are really great. What IDE are you using? Thanks much!
   - text                  : Thanks Jason! Sublime with Brogrammer Theme with Oceanic Next Color Scheme.
+
+# -- PURCHASE ---------------------------------------------------------------
+PURCHASES:
+  - course                : 0
+  - course                : 1
+  - lesson                : 2
