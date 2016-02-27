@@ -6,6 +6,7 @@ db = require('zenserver').Mongo.connections.primary
 PassHash = require 'password-hash'
 C = require '../constants'
 token = require '../token'
+create = require './modules/create'
 search = require './modules/search'
 findAndUpdate = require './modules/findAndUpdate'
 
@@ -23,10 +24,7 @@ User = new Schema
 
 # -- Static methods ------------------------------------------------------------
 User.statics.create = (values) ->
-  promise = new Hope.Promise()
-  user = db.model 'User', User
-  new user(values).save (error, value) -> promise.done error, value
-  promise
+  create 'Create', Create, values
 
 User.statics.signup = (values) ->
   promise = new Hope.Promise()

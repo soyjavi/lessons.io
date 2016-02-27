@@ -3,6 +3,7 @@
 Hope = require('zenserver').Hope
 Schema = require('zenserver').Mongoose.Schema
 db = require('zenserver').Mongo.connections.primary
+create = require './modules/create'
 search = require './modules/search'
 findAndUpdate = require './modules/findAndUpdate'
 
@@ -15,10 +16,7 @@ Comment = new Schema
 
 # -- Static methods ------------------------------------------------------------
 Comment.statics.create = (values) ->
-  promise = new Hope.Promise()
-  comment = db.model 'Comment', Comment
-  new comment(values).save (error, value) -> promise.done error, value
-  promise
+  create 'Comment', Comment, values
 
 Comment.statics.search = (query, limit = 0, page = 1, populate = '', sort = created_at: 'desc') ->
   search @, query, limit, page, populate, sort

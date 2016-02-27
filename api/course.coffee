@@ -2,7 +2,7 @@
 
 Hope = require('zenserver').Hope
 Course = require '../common/models/course'
-Session = require "../common/session"
+Session = require '../common/session'
 
 module.exports = (zen) ->
 
@@ -42,7 +42,7 @@ module.exports = (zen) ->
       , (error, session) ->
         filter = _id: request.parameters.id, user: session._id
         Course.findAndUpdate filter, request.parameters
-      ]).then (error, value) =>
+      ]).then (error, value) ->
         if error then response.unauthorized() else response.json value.parse()
 
   zen.delete '/api/course', (request, response) ->
