@@ -8,13 +8,11 @@ module.exports =
       STUDENT: 1
 
   PURCHASE:
+    TYPE:
+      STRIPE: 1
     STATE:
       UNPAID: 0
       PAID: 1
-
-  STRIPE:
-    KEY: "sk_live_?"
-    # KEY: "sk_test_?"
 
   HOST:
     DEVELOPMENT: "#{global.ZEN.protocol}://#{global.ZEN.host}:#{global.ZEN.port}/"

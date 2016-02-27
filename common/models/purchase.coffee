@@ -12,7 +12,9 @@ Purchase = new Schema
   user: type: Schema.ObjectId, ref: 'User'
   course: type: String, ref: 'Course'
   lesson: type: String, ref: 'Lesson'
+  amount: type: Number, default: 0
   state: type: Number, default: C.PURCHASE.STATE.UNPAID
+  type: type: Number, default: C.PURCHASE.TYPE.STRIPE
   token: type: String
   updated_at: type: Date
   created_at: type: Date, default: Date.now
@@ -38,6 +40,7 @@ Purchase.methods.parse = ->
   user: @user?.parse?() or @user
   course: @course?.parse?() or @course
   lesson: @lesson?.parse?() or @lesson
+  amount: @amount.toFixed(2)
   state: @state
   token: @token
   updated_at: @updated_at

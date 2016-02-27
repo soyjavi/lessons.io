@@ -7,6 +7,11 @@ timezone: Europe/Amsterdam
 token: HunLauSchDepReg
 encoding: HS512
 
+# -- Payment -------------------------------------------------------------------
+STRIPE:
+  KEY: sk_test_?
+  SECRET_KEY: ?
+
 # -- Services ------------------------------------------------------------------
 mongo:
   - name: primary
