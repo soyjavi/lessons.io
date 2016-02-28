@@ -9,6 +9,20 @@ api:
   - comment
   - purchase
   - purchase.stripe
+www:
+  - index
+
+# -- Static resources ----------------------------------------------------------
+statics:
+  - url     : /stylesheet
+    folder  : /static
+    maxage  : 60 #seconds
+  - url     : /script
+    folder  : /static
+    maxage  : 60
+  - url     : /img
+    folder  : /static/img
+    maxage  : 60
 
 # -- session -------------------------------------------------------------------
 session:

@@ -3,6 +3,10 @@ host: localhost
 port: 8080
 timezone: Europe/Amsterdam
 
+# -- Mustache template ---------------------------------------------------------
+mustache:
+  cache: false
+
 # -- Authentication ------------------------------------------------------------
 token: HunLauSchDepReg
 encoding: HS512
@@ -11,6 +15,13 @@ encoding: HS512
 STRIPE:
   KEY: sk_test_?
   SECRET_KEY: ?
+
+# -- Mail template ---------------------------------------------------------
+mail:
+  name: Sessions.io
+  host: smtp.gmail.com
+  user: javi.jimenez.villar@gmail.com
+  password: s3r131bl4cKGoogle
 
 # -- Services ------------------------------------------------------------------
 mongo:
