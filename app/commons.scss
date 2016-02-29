@@ -54,35 +54,50 @@ input:not([type="checkbox"]):not([type="radio"]), button {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
-// // -- Material design font sizes
-// h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-//   @include typo-display-3($color-contrast: true);
-// }
+// -- Material design font sizes
+h1 {
+  font-size: 5.6rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+}
 
-// h1 {
-//   @include typo-display-3;
-// }
+h2 {
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 4.8rem;
+}
 
-// h2 {
-//   @include typo-display-2;
-// }
+h3 {
+  font-size: 3.4rem;
+  font-weight: 400;
+  line-height: 4rem;
+}
 
-// h3 {
-//   @include typo-display-1;
-// }
+h4 {
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 3.2rem;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-// h4 {
-//   @include typo-headline;
-// }
+h5 {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .02em;
+}
 
-// h5 {
-//   @include typo-title;
-// }
+h6 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  letter-spacing: .04em;
+}
 
-// h6 {
-//   @include typo-subhead;
-// }
-
-// p {
-//   @include typo-body-1;
-// }
+p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  letter-spacing: 0;
+}

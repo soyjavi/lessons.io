@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LayoutSubscribe from './layouts/subscribe';
+import LandingLayout from './layouts/landing';
 import common from './commons'
 
-ReactDOM.render(<LayoutSubscribe />, document.getElementById('container'));
+ReactDOM.render(<LandingLayout />, document.getElementById('container'));

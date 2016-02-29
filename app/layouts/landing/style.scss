@@ -1,0 +1,14 @@
+@import "../../globals";
+@import "./_config";
+
+.root {
+  background: url('/img/grid.png') repeat;
+  background-color: $landing-background-color;
+  min-height: $landing-height;
+  color: WHITE;
+  padding: $unit * 6.4;
+}
+
+.title {
+  font-weight: $font-weight-bold;
+}

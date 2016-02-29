@@ -1,0 +1,8 @@
+@import "../../globals";
+@import "./_config";
+
+.root {
+  height: $footer-height;
+  line-height: $footer-height;
+  text-align: center;
+}

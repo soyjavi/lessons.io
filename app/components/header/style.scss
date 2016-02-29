@@ -1,0 +1,34 @@
+@import "../../globals";
+@import "./_config";
+
+.root {
+  z-index: 1;
+  display: flex;
+  height: $header-height;
+  align-items: flex-end;
+  padding: 0 $unit;
+  border-bottom: $header-border;
+}
+
+.logo {
+  width: $header-logo-size;
+  height: $header-logo-size;
+  margin-right: $unit;
+  background-color: $header-logo-background-color;
+  border: $header-logo-border;
+  border-radius: 50%;
+  margin-bottom: -($header-logo-size / 3);
+}
+
+.menu {
+  flex-grow: 1;
+}
+
+.menu, .session {
+  line-height: $header-link-height;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  & > a {
+    margin: 0 $unit;
+  }
+}
