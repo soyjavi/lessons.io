@@ -4,7 +4,10 @@ import style from './style.scss';
 const Header = props => {
   return (
     <header className={style.root}>
-      <img className={style.logo} />
+      <div className={style.brand}>
+        <img className={style.logo} />
+        <h4 className={style.title}>lessons.io</h4>
+      </div>
       <nav className={style.menu}>
         <a href='#'>Episodios</a>
         <a href='#'>Roadmap</a>

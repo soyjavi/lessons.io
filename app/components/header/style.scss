@@ -2,22 +2,33 @@
 @import "./_config";
 
 .root {
+  position: absolute;
   z-index: 1;
   display: flex;
+  width: 100vw;
   height: $header-height;
-  align-items: flex-end;
+  align-items: center;
   padding: 0 $unit;
-  border-bottom: $header-border;
+  color: white;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  margin: 0 $unit;
 }
 
 .logo {
   width: $header-logo-size;
   height: $header-logo-size;
-  margin-right: $unit;
   background-color: $header-logo-background-color;
   border: $header-logo-border;
   border-radius: 50%;
-  margin-bottom: -($header-logo-size / 3);
+}
+
+.title {
+  margin-left: $unit;
+  font-weight: $font-weight-bold;
 }
 
 .menu {
@@ -25,10 +36,12 @@
 }
 
 .menu, .session {
+  display: flex;
+  justify-content: flex-end;
   line-height: $header-link-height;
-  text-transform: uppercase;
-  font-weight: $font-weight-bold;
+  opacity: .8;
   & > a {
-    margin: 0 $unit;
+    margin: 0 (2 * $unit);
+    color: white;
   }
 }

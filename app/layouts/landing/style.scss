@@ -2,13 +2,20 @@
 @import "./_config";
 
 .root {
-  background: url('/img/grid.png') repeat;
+  background: url('/img/header-bg-texture.png') repeat;
   background-color: $landing-background-color;
   min-height: $landing-height;
   color: WHITE;
   padding: $unit * 6.4;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .title {
   font-weight: $font-weight-bold;
+  font-size: 6.4 * $unit;
+  margin: (3.2 * $unit) 0;
 }
