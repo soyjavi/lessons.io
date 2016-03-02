@@ -1,10 +1,11 @@
 'use strict'
 
 Hope = require('zenserver').Hope
-User = require '../common/models/user'
-Session = require '../common/session'
+
 C = require '../common/constants'
 mailer = require '../common/mailer'
+Session = require '../common/session'
+User = require '../common/models/user'
 
 module.exports = (zen) ->
 
@@ -25,7 +26,7 @@ module.exports = (zen) ->
         user.token = @user.token
         response.json user
         if @user.role isnt C.USER.ROLE.ADMIN
-          mailer @user.mail, "Welcome to Sessions.io", "welcome",
+          mailer @user.mail, 'Welcome to Sessions.io', 'welcome',
             host: C.HOST[global.ZEN.type.toUpperCase()]
             user: @user
 

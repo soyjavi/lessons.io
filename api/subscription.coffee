@@ -1,10 +1,10 @@
 'use strict'
 
 Hope = require('zenserver').Hope
-Subscription = require '../common/models/subscription'
+
 Session = require '../common/session'
+Subscription = require '../common/models/subscription'
 C = require '../common/constants'
-# mailer = require '../common/mailer'
 
 module.exports = (zen) ->
 
@@ -32,7 +32,7 @@ module.exports = (zen) ->
   zen.put '/api/subscription', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id
         Subscription.findAndUpdate filter, request.parameters
@@ -42,7 +42,7 @@ module.exports = (zen) ->
   zen.delete '/api/subscription', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id
         Subscription.search filter, limit = 1

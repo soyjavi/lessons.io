@@ -1,6 +1,7 @@
 'use strict'
 
 Hope = require('zenserver').Hope
+
 Course = require '../common/models/course'
 Session = require '../common/session'
 
@@ -27,7 +28,7 @@ module.exports = (zen) ->
   zen.post '/api/course', (request, response) ->
     if request.required ['title']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         values = request.parameters
         values.user = session._id
@@ -38,7 +39,7 @@ module.exports = (zen) ->
   zen.put '/api/course', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id, user: session._id
         Course.findAndUpdate filter, request.parameters
@@ -48,11 +49,11 @@ module.exports = (zen) ->
   zen.delete '/api/course', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id, user: session._id
         Course.search filter, limit = 1
       , (error, course) ->
         course.delete()
-      ]).then (error, value)->
+      ]).then (error, value) ->
         if error then response.unauthorized() else response.ok()

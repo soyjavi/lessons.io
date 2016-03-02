@@ -22,7 +22,7 @@ _create = (comment, user, course, lesson) -> ->
     comment.id = response.id
 
 _read = (user) -> ->
-  Test 'GET', 'api/comment', null, _session(user), "Anyone can read comments.", 200
+  Test 'GET', 'api/comment', null, _session(user), 'Anyone can read comments.', 200
 
 _delete = (comment, user) -> ->
   Test 'DELETE', 'api/comment', comment, _session(user), "Admin deletes '#{comment.title}' comment.", 200

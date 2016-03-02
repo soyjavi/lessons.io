@@ -23,6 +23,12 @@ USERS:
     - mail                : s1@lessons.io
       password            : s1
       name                : User nº1
+      billing:
+        name: Zetapath LTD.
+        address: Wenlock Road, 20-22
+        zip_code: N1 7GU
+        country: England
+        VAT_Number: Unknown
     - mail                : s2@lessons.io
       password            : s2
       name                : User nº2

@@ -1,6 +1,8 @@
 'use strict'
 
 Hope = require('zenserver').Hope
+
+Course = require '../common/models/course'
 Lesson = require '../common/models/lesson'
 Session = require '../common/session'
 
@@ -27,18 +29,24 @@ module.exports = (zen) ->
   zen.post '/api/lesson', (request, response) ->
     if request.required ['course', 'title']
       Hope.shield([ ->
-        Session request, response, null, admin = true
-      , (error, session) ->
+        Session request, response, redirect = false, admin = true
+      , (error, @session) =>
+        Course.search _id: request.parameters.course, limit = 1
+      , (error, @course) =>
         values = request.parameters
-        values.user = session._id
+        values.user = @session._id
+        values.course = @course.id
         Lesson.create values
-      ]).then (error, value) ->
-        if error then response.unauthorized() else response.json value.parse()
+      , (error, @lesson) =>
+        @course.lessons.addToSet @lesson.id
+        @course.update()
+      ]).then (error, @course) =>
+        if error then response.unauthorized() else response.json @lesson.parse()
 
   zen.put '/api/lesson', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id, user: session._id
         Lesson.findAndUpdate filter, request.parameters
@@ -48,11 +56,17 @@ module.exports = (zen) ->
   zen.delete '/api/lesson', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id, user: session._id
         Lesson.search filter, limit = 1
-      , (error, lesson) ->
-        lesson.delete()
-      ]).then (error, value)->
+      , (error, @lesson) =>
+        @lesson.delete()
+      , (error, value) =>
+        Course.search _id: @lesson.course, limit = 1
+      , (error, @course) =>
+        index = @course.lessons.indexOf @lesson.id
+        @course.lessons.splice index, 1 if index > -1
+        @course.update()
+      ]).then (error, value) ->
         if error then response.unauthorized() else response.ok()

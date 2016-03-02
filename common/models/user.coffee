@@ -40,7 +40,8 @@ User.statics.signup = (values) ->
 
 User.statics.login = (values) ->
   promise = new Hope.Promise()
-  @findOne mail: values.mail, (error, user) =>
+  filter = mail: values.mail, active: true
+  @findOne filter, (error, user) ->
     if user is null or not PassHash.verify values.password, user.password
       promise.done true
     else
@@ -62,6 +63,7 @@ User.methods.parse = ->
   username: @username or @mail
   name: @name
   image: @image
+  billing: @billing
   updated_at: @updated_at
   created_at: @created_at
 

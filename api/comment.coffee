@@ -1,7 +1,10 @@
 'use strict'
 
 Hope = require('zenserver').Hope
+
 Comment = require '../common/models/comment'
+Course = require '../common/models/course'
+Lesson = require '../common/models/lesson'
 Session = require '../common/session'
 
 module.exports = (zen) ->
@@ -22,10 +25,17 @@ module.exports = (zen) ->
   zen.post '/api/comment', (request, response) ->
     if request.required ['text']
       Hope.shield([ ->
-        Session request, response, null
-      , (error, session) ->
+        Session request, response
+      , (error, @session) =>
+        if value = request.parameters.course
+          Course.search _id: value, limit = 1
+        else if value = request.parameters.lesson
+          Lesson.search _id: value, limit = 1
+        else
+          response.badRequest()
+      , (error, value) =>
         values = request.parameters
-        values.user = session._id
+        values.user = @session._id
         Comment.create values
       ]).then (error, value) ->
         if error then response.unauthorized() else response.json value.parse()
@@ -33,11 +43,11 @@ module.exports = (zen) ->
   zen.delete '/api/comment', (request, response) ->
     if request.required ['id']
       Hope.shield([ ->
-        Session request, response, null, admin = true
+        Session request, response, redirect = false, admin = true
       , (error, session) ->
         filter = _id: request.parameters.id
         Comment.search filter, limit = 1
       , (error, comment) ->
         comment.delete()
-      ]).then (error, value)->
+      ]).then (error, value) ->
         if error then response.unauthorized() else response.ok()

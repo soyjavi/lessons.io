@@ -15,7 +15,7 @@ Course = new Schema
   description: type: String
   image: type: String
   source: type: String
-  lessons: [type: Schema.ObjectId]
+  lessons: [type: String, ref: 'Lesson']
   active: type: Boolean, default: true
   updated_at: type: Date
   created_at: type: Date, default: Date.now
@@ -47,5 +47,13 @@ Course.methods.parse = ->
   active: @active
   updated_at: @updated_at
   created_at: @created_at
+
+# # -- Instance methods ----------------------------------------------------------
+Course.methods.update = (parameters = {}) ->
+  promise = new Hope.Promise()
+  @[key] = value for key, value of parameters
+  @.save (error) ->
+    promise.done (if error then true else error), true
+  promise
 
 exports = module.exports = db.model 'Course' , Course

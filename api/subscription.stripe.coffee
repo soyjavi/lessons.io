@@ -2,10 +2,11 @@
 
 stripe = require 'stripe'
 Hope = require('zenserver').Hope
-Subscription = require '../common/models/subscription'
-Session = require '../common/session'
+
 C = require '../common/constants'
-# mailer = require '../common/mailer'
+mailer = require '../common/mailer'
+Session = require '../common/session'
+Subscription = require '../common/models/subscription'
 
 module.exports = (zen) ->
 
@@ -38,10 +39,6 @@ module.exports = (zen) ->
           response.json message: error.code, error.message
         else
           response.ok()
-          # order = @order.parse()
-          # mailer @session.mail, "#{@settings.name} - Order #{order.id} #{order.state_label}", "order",
-          #   settings  : @settings
-          #   user      : @session
-          #   host      : C.HOST[global.ZEN.type.toUpperCase()]
-          #   order     : order
-          #   lines     : (line.parse() for line in @lines)
+          mailer @user.mail, 'Thanks for your subscription', 'subscription',
+            host: C.HOST[global.ZEN.type.toUpperCase()]
+            user: @user
