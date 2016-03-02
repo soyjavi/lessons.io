@@ -15,7 +15,6 @@ Course = new Schema
   description: type: String
   image: type: String
   source: type: String
-  price: type: Number, default: 0
   lessons: [type: Schema.ObjectId]
   active: type: Boolean, default: true
   updated_at: type: Date
@@ -44,7 +43,6 @@ Course.methods.parse = ->
   description: @description
   image: @image
   source: @source
-  price: @price.toFixed(2)
   lessons: @lessons
   active: @active
   updated_at: @updated_at

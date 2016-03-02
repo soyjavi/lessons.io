@@ -16,8 +16,8 @@ Lesson = new Schema
   description: type: String
   image: type: String
   source: type: String
-  price: type: Number, default: 0
   active: type: Boolean, default: true
+  public: type: Boolean, default: false
   updated_at: type: Date
   created_at: type: Date, default: Date.now
 
@@ -45,8 +45,8 @@ Lesson.methods.parse = ->
   description: @description
   image: @image
   source: @source
-  price: @price.toFixed(2)
   active: @active
+  public: @public
   updated_at: @updated_at
   created_at: @created_at
 

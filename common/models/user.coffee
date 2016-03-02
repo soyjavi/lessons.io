@@ -13,12 +13,14 @@ findAndUpdate = require './modules/findAndUpdate'
 User = new Schema
   mail: type: String, unique: true
   password: type: String
-  role: type: Number, default: C.USER.TYPE.STUDENT
+  role: type: Number, default: C.USER.ROLE.STUDENT
   username: type: String, trim: true
   name: type: String
   image: type: String, default: 'user.png'
   token: type: String
+  billing: type: Object
   active: type: Boolean, default: true
+  subscribed: type: Boolean, default: false
   updated_at: type: Date
   created_at: type: Date, default: Date.now
 

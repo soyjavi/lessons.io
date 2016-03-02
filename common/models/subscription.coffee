@@ -8,42 +8,40 @@ create = require './modules/create'
 search = require './modules/search'
 findAndUpdate = require './modules/findAndUpdate'
 
-Purchase = new Schema
+Subscription = new Schema
   user: type: Schema.ObjectId, ref: 'User'
-  course: type: String, ref: 'Course'
-  lesson: type: String, ref: 'Lesson'
   amount: type: Number, default: 0
-  state: type: Number, default: C.PURCHASE.STATE.UNPAID
-  type: type: Number, default: C.PURCHASE.TYPE.STRIPE
+  state: type: Number, default: C.SUBSCRIPTION.STATE.UNPAID
+  type: type: Number, default: C.SUBSCRIPTION.TYPE.MONTHLY
+  collector: type: Number, default: C.SUBSCRIPTION.COLLECTOR.STRIPE
   token: type: String
   updated_at: type: Date
   created_at: type: Date, default: Date.now
 
 # -- Static methods ------------------------------------------------------------
-Purchase.statics.create = (values) ->
-  create 'Purchase', Purchase, values
+Subscription.statics.create = (values) ->
+  create 'Subscription', Subscription, values
 
-Purchase.statics.search = (query, limit = 0, page = 1, populate = ['course', 'lesson'], sort = updated_at: 'desc') ->
+Subscription.statics.search = (query, limit = 0, page = 1, populate = [], sort = updated_at: 'desc') ->
   search @, query, limit, page, populate, sort
 
-Purchase.statics.findAndUpdate = (filter, values) ->
+Subscription.statics.findAndUpdate = (filter, values) ->
   findAndUpdate @, filter, values
 
 # -- Instance methods ----------------------------------------------------------
-Purchase.methods.delete = ->
+Subscription.methods.delete = ->
   promise = new Hope.Promise()
   @remove (error) -> promise.done error, true
   promise
 
-Purchase.methods.parse = ->
+Subscription.methods.parse = ->
   id: @_id.toString()
   user: @user?.parse?() or @user
-  course: @course?.parse?() or @course
-  lesson: @lesson?.parse?() or @lesson
   amount: @amount.toFixed(2)
   state: @state
+  type: @type
   token: @token
   updated_at: @updated_at
   created_at: @created_at
 
-exports = module.exports = db.model 'Purchase', Purchase
+exports = module.exports = db.model 'Subscription', Subscription

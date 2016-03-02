@@ -7,8 +7,8 @@ api:
   - lesson
   - course
   - comment
-  - purchase
-  - purchase.stripe
+  - subscription
+  - subscription.stripe
 www:
   - index
 

@@ -2,14 +2,14 @@
 
 stripe = require 'stripe'
 Hope = require('zenserver').Hope
-Purchase = require '../common/models/purchase'
+Subscription = require '../common/models/subscription'
 Session = require '../common/session'
 C = require '../common/constants'
 # mailer = require '../common/mailer'
 
 module.exports = (zen) ->
 
-  zen.put '/api/purchase/stripe', (request, response) ->
+  zen.put '/api/subscription/stripe', (request, response) ->
     if request.required ['id', 'token']
       token = request.parameters.token
       Hope.shield([ ->
@@ -18,22 +18,22 @@ module.exports = (zen) ->
         filter =
           _id: request.parameters.id
           user: @session._id
-          state: C.PURCHASE.STATE.UNPAID
+          state: C.SUBSCRIPTION.STATE.UNPAID
         values =
-          state: C.PURCHASE.STATE.PAID
+          state: C.SUBSCRIPTION.STATE.PAID
           token: token
-        Purchase.findAndUpdate filter, values
-      , (error, @purchase) =>
+        Subscription.findAndUpdate filter, values
+      , (error, @subscription) =>
         promise = new Hope.Promise()
         values =
-          amount: @purchase.amount.toFixed(2).toString().replace('.', '')
+          amount: @subscription.amount.toFixed(2).toString().replace('.', '')
           currency: 'usd'
           card: token
           description: @session.mail
-        stripe(C.STRIPE.SECRET_KEY).charges.create values, (error, charge) =>
+        stripe(C.STRIPE.SECRET_KEY).charges.create values, (error, charge) ->
           promise.done error, charge
         promise
-      ]).then (error, charge) =>
+      ]).then (error, charge) ->
         if error
           response.json message: error.code, error.message
         else
