@@ -47,11 +47,12 @@ $color-opacity: .8;
 
 // -- Common Components
 .wrapper {
+  z-index: 1;
   max-width: 80vw;
 }
 
 .button {
-  color: $white;
-  border-radius: 0.35 * $unit;
   padding: $offset (2 * $offset);
+  color: $white;
+  border-radius: .35 * $unit;
 }

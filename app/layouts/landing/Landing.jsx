@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+// -- Components
+import Particles from '../../components/particles'
 // -- Context
 import style from './style.scss';
 import C from '../../constants'
@@ -16,6 +18,7 @@ const Landing = props => {
           <small>click here to level up</small>
         </Link>
       </div>
+      <Particles />
     </section>
   );
 };

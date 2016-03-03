@@ -1,5 +1,6 @@
 import React from 'react';
 // -- Components
+import Particles from '../../components/particles'
 import PricePlans from './join.PricePlans'
 // -- Context
 import style from './style.scss';
@@ -15,6 +16,7 @@ const Join = props => {
             If you're still on the fence, we have a plan called “monthly” - and it’s not like the gym. You may cancel it any time.
           </p>
         </div>
+        <Particles className={style.particles} />
       </header>
       <div>
         <PricePlans />

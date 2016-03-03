@@ -13,6 +13,10 @@ $header-height: 50vh;
   background: $background-header;
 }
 
+.particles {
+  height: $header-height;
+}
+
 .title {
   font-weight: $font-weight-bold;
 }
