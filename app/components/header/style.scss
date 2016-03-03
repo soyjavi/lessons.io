@@ -8,7 +8,7 @@
   width: 100vw;
   height: $header-height;
   align-items: center;
-  padding: 0 $unit;
+  padding: 0 $offset;
   color: white;
 }
 
@@ -16,14 +16,11 @@
   display: flex;
   align-items: center;
   margin: 0 $unit;
+  color: white;
 }
 
 .logo {
   width: $header-logo-size;
-  height: $header-logo-size;
-  background-color: $header-logo-background-color;
-  border: $header-logo-border;
-  border-radius: 50%;
 }
 
 .title {
@@ -39,9 +36,10 @@
   display: flex;
   justify-content: flex-end;
   line-height: $header-link-height;
-  opacity: .8;
+  opacity: $color-opacity;
   & > a {
     margin: 0 (2 * $unit);
+    font-weight: $font-weight-bold;
     color: white;
   }
 }

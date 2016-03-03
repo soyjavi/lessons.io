@@ -1,20 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router';
+// -- Context
 import style from './style.scss';
 
 const Header = props => {
   return (
     <header className={style.root}>
-      <div className={style.brand}>
-        <img className={style.logo} />
-        <h4 className={style.title}>lessons.io</h4>
-      </div>
+      <a href='/' className={style.brand}>
+        <img className={style.logo} src='/img/logo.png'/>
+        <h4 className={style.title}>hackvolt</h4>
+      </a>
       <nav className={style.menu}>
-        <a href='#'>Episodios</a>
-        <a href='#'>Roadmap</a>
-        <a href='#'>About</a>
+        <Link to='/series'>Series</Link>
+        <Link to='/roadmap'>Roadmap</Link>
+        <Link to='/about'>Nosotros</Link>
       </nav>
       <nav className={style.session}>
-        <a href='#'>Login</a>
+        <Link to='#'>Login</Link>
       </nav>
     </header>
   );

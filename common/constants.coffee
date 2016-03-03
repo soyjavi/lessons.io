@@ -2,6 +2,9 @@
 
 module.exports =
 
+  PAGE:
+    TITLE: 'hackvolt'
+
   USER:
     ROLE:
       ADMIN: 0

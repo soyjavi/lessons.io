@@ -1,0 +1,59 @@
+@import "../../globals";
+$header-height: 50vh;
+
+.header {
+  display: flex;
+  height: $header-height;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  text-align: center;
+  background: $background-header;
+}
+
+.title {
+  font-weight: $font-weight-bold;
+}
+
+.PricePlans {
+  display: flex;
+  justify-content: center;
+  padding: $offset 0;
+}
+.PricePlan {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: $offset;
+  margin: $offset;
+  text-align: center;
+  background-color: $grey;
+  color: $white;
+  width: 20vw;
+  height: 45vh;
+  > label {
+    font-weight: $font-weight-bold;
+  }
+  > strong {
+    flex-grow: 1;
+    font-size: (12.8 * $unit);
+    display: flex;
+    align-items: center;
+    > small {
+      font-size: 25%;
+      margin-left: -$offset;
+      opacity: $color-opacity;
+    }
+  }
+}
+.button {
+  font-weight: $font-weight-bold;
+  background-color: $accent;
+  color: $white;
+  line-height: 2.8 * $unit;
+  width: 100%;
+}

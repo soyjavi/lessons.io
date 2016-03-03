@@ -1,27 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router';
+// -- Context
 import style from './style.scss';
-// -- Components
-import Header from '../../components/header'
-import Footer from '../../components/footer'
+import C from '../../constants'
 
 const Landing = props => {
   return (
-    <article>
-      <Header />
-      <div data-component-layout='finder' className={style.root}>
-        <div className='wrapper'>
-          <h2 className={style.title}>Aprende React</h2>
-          <h4>con un video tutorial cada semana.</h4>
+    <section data-component-layout='finder' className={style.root}>
+      <div className={style.wrapper}>
+        <h2 className={style.title}>{C.SITE.TITLE}</h2>
+        <h4 className={style.description}>{C.SITE.DESCRIPTION}</h4>
 
-          <form>
-            <input type='text' />
-            <button onClick={Landing.onClick}>Click me</button>
-          </form>
-          <label>te prometemos que no enviaremos nada de spam</label>
-        </div>
+        <Link to='/join' className={style.button}>
+          <strong>Unlock the knowledge</strong>
+          <small>click here to level up</small>
+        </Link>
       </div>
-      <Footer />
-    </article>
+    </section>
   );
 };
 
