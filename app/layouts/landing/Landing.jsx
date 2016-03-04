@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
 // -- Components
+import Button from '../../components/button'
 import Particles from '../../components/particles'
 // -- Context
 import style from './style.scss';
@@ -12,10 +12,12 @@ const Landing = props => {
       <div className={style.wrapper}>
         <h1>{C.SITE.TITLE}</h1>
         <h4 className={style.description}>{C.SITE.DESCRIPTION}</h4>
-        <Link to='/join' className={style.button}>
-          <strong>Unlock the knowledge</strong>
-          <small>click here to level up</small>
-        </Link>
+        <Button
+          href='/join'
+          caption='Unlock the knowledge'
+          legend='click here to level up'
+          accent
+        />
       </div>
       <Particles />
     </section>
