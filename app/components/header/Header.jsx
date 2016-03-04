@@ -16,7 +16,7 @@ const Header = props => {
         <Link to='/about'>Nosotros</Link>
       </nav>
       <nav className={style.session}>
-        <Link to='#'>Login</Link>
+        <Link to='/sign_in'>Login</Link>
       </nav>
     </header>
   );

@@ -1,5 +1,6 @@
 @import "../../globals";
-@import "./_config";
+
+$footer-height: $unit * 6.4;
 
 .root {
   height: $footer-height;
