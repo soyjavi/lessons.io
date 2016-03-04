@@ -6,7 +6,7 @@ import LayoutApp from './layouts/app';
 import LayoutLanding from './layouts/landing';
 import LayoutJoin from './layouts/join';
 import LayoutUnknown from './layouts/unknown';
-import common from './commons'
+import commons from './commons'
 
 ReactDOM.render((
   <Router history={browserHistory}>

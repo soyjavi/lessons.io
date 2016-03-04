@@ -10,9 +10,8 @@ const Landing = props => {
   return (
     <section data-component-layout='finder' className={style.root}>
       <div className={style.wrapper}>
-        <h2 className={style.title}>{C.SITE.TITLE}</h2>
+        <h1>{C.SITE.TITLE}</h1>
         <h4 className={style.description}>{C.SITE.DESCRIPTION}</h4>
-
         <Link to='/join' className={style.button}>
           <strong>Unlock the knowledge</strong>
           <small>click here to level up</small>

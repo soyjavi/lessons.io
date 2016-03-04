@@ -1,0 +1,17 @@
+@import "../../globals";
+$root-height: 100vh;
+
+.root {
+  display: flex;
+  height: $root-height;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  background: $background-header;
+}
+
+.particles {
+  height: $root-height;
+}

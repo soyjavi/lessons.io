@@ -31,21 +31,20 @@ $text-secondary: #727272;
 $divider: lighten(#b6b6b6, 75%);
 $background-color: #f9f9f9;
 $background-header: url('/img/header-bg-texture.png') repeat;
+$color-opacity: .8;
 
 // -- Sizes
 $unit: 1rem;
 $offset: 1.6 * $unit;
+
 // -- Font
 $font-size-tiny: 1.2 * $unit;
 $font-size-small: 1.4 * $unit;
 $font-size-normal: 1.6 * $unit;
 $font-size-large: 2 * $unit;
 $font-weight-bold: 700;
-// -- Colors
-$theme: #e62828;
-$color-opacity: .8;
 
-// -- Common Components
+// -- Common Components styles
 .wrapper {
   z-index: 1;
   max-width: 80vw;
