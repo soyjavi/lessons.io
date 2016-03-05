@@ -49,9 +49,3 @@ $font-weight-bold: 700;
   z-index: 1;
   max-width: 80vw;
 }
-
-.button {
-  padding: $offset (2 * $offset);
-  color: $white;
-  border-radius: .35 * $unit;
-}

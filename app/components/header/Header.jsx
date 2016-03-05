@@ -6,10 +6,10 @@ import style from './style.scss';
 const Header = props => {
   return (
     <header className={style.root}>
-      <a href='/' className={style.brand}>
+      <Link to='/' className={style.brand}>
         <img className={style.logo} src='/img/logo.png'/>
         <h4 className={style.title}>hackvolt</h4>
-      </a>
+      </Link>
       <nav className={style.menu}>
         <Link to='/series'>Series</Link>
         <Link to='/roadmap'>Roadmap</Link>

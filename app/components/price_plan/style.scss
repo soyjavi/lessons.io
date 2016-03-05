@@ -33,12 +33,7 @@
       opacity: $color-opacity;
     }
   }
-}
-
-.button {
-  font-weight: $font-weight-bold;
-  background-color: $accent;
-  color: $white;
-  line-height: 2.8 * $unit;
-  width: 100%;
+  > button {
+    width: 100%;
+  }
 }

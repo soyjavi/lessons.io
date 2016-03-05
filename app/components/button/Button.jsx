@@ -4,12 +4,13 @@ import { Link } from 'react-router';
 import style from './style.scss';
 
 const Button = props => {
-  const { accent, href, caption, legend, children, ...others } = props;
+  const { accent, href, caption, legend, children, onClick, ...others } = props;
   const element = href ? Link : 'button';
   let className = style.root;
 
   const properties = {
     to: href,
+    onClick: onClick,
     className: `${style.root} ${accent ? style.accent : ''}`
   };
 
@@ -22,7 +23,8 @@ const Button = props => {
 Button.propTypes = {
   caption: React.PropTypes.string,
   href: React.PropTypes.string,
-  legend: React.PropTypes.string
+  legend: React.PropTypes.string,
+  onClick: React.PropTypes.func
 };
 
 export default Button;
