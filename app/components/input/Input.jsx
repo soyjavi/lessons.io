@@ -1,20 +1,32 @@
 import React from 'react';
 // -- Context
-import style from './style.scss';
+import style from './style';
 
-const Input = props => {
-  const className = `${style.root} ${props.className}`
-  return (
-    <input {...props} className={className}/>
-  );
-};
+class Input extends React.Component {
+  static propTypes = {
+    className: React.PropTypes.string,
+    multiline: React.PropTypes.bool,
+    type: React.PropTypes.string,
+    value: React.PropTypes.any
+  };
 
-Input.propTypes = {
-  className: React.PropTypes.string
-};
+  static defaultProps = {
+    className: ``,
+    multiline: false,
+    type: 'text'
+  };
 
-Input.defaultProps = {
-  className: ''
-};
+  render () {
+    const { className, multiline, type, value, ...others} = this.props;
+
+    const properties = {
+      className: `${style.root} ${className}`,
+      type,
+      value
+    };
+
+    return React.createElement(multiline ? 'textarea' : 'input', properties);
+  }
+}
 
 export default Input;
