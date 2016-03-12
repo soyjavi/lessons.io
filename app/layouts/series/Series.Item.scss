@@ -1,0 +1,49 @@
+@import "../../globals";
+$item-size: 25.6 * $unit;
+$item-offset: $unit;
+
+.root {
+  width: $item-size;
+  margin: $offset;
+  color: $black;
+  background: $white;
+  box-shadow: 0 0 ($unit / 10) rgba(0,0,0,.25);
+}
+
+.thumbnail {
+  width: $item-size;
+  height: $item-size;
+  padding: $item-offset;
+  background-color: grey;
+  background-size: cover;
+  &:hover {
+    box-shadow: inset 0 0 0 $item-size rgba(0,0,0,.25);
+  }
+  .level {
+    font-size: $font-size-tiny;
+    font-weight: $font-weight-bold;
+    line-height: $font-size-tiny;
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  padding: $item-offset;
+  .title {
+    flex-grow: 1;
+    font-weight: $font-weight-bold;
+  }
+  .lessons {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    > small {
+      font-size: $font-size-tiny;
+      line-height: $font-size-tiny;
+      opacity: .5;
+    }
+  }
+}

@@ -12,7 +12,6 @@ const Title = props => {
         { props.description ? <h4 className={style.description}>{props.description}</h4> : null }
         { props.children }
       </div>
-      <Particles />
     </section>
   );
 };

@@ -1,29 +1,33 @@
 import React from 'react';
 // -- Components
-import Button from '../../components/button'
 import Title from '../../components/title'
 // -- Context
+import Item from './Series.Item'
 import style from './style.scss';
-import C from '../../constants'
 
-const Landing = props => {
+const Series = props => {
   return (
-    <section data-component-layout='series' >
+    <article>
       <Title caption='Series disponibles' description='Lorem ipsum...' />
-    </section>
+      <section className={style.root}>
+        <Item
+          lessons={12}
+          level='principiante'
+          thumbnail='http://soyjavi.com/assets/images/soyjavi.jpg'
+          title='Aprende React'
+          url='/serie/aprender-react'
+        />
+
+        <Item
+          lessons={12}
+          level='intermedio'
+          thumbnail='http://'
+          title='Aprende Redux'
+          url='http://'
+        />
+      </section>
+    </article>
   );
 };
 
-Landing.propTypes = {
-  caption: React.PropTypes.string
-};
-
-Landing.defaultProps = {
-  caption: ''
-};
-
-Landing.onClick = function() {
-  alert('Hello world')
-};
-
-export default Landing;
+export default Series;
