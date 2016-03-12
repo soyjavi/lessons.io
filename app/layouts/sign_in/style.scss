@@ -1,0 +1,14 @@
+@import "../../globals";
+
+.root {
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  min-width: 30vw;
+}

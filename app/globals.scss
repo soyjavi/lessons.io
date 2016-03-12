@@ -49,3 +49,10 @@ $font-weight-bold: 700;
   z-index: 1;
   max-width: 80vw;
 }
+
+.center {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}

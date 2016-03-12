@@ -1,31 +1,10 @@
 @import "../../globals";
+$title-height: 100vh;
 
-$landing-background-color: #ccc;
-$landing-height: 100vh;
-
-.root {
-  display: flex;
-  min-height: $landing-height;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
-  padding: $unit * 6.4;
-  color: WHITE;
-  text-align: center;
-  background: $background-header;
-  background-color: $landing-background-color;
+.title {
+  min-height: $title-height;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: (3.2 * $unit);
-  > * {
-    margin-bottom: (3.2 * $unit);
-  }
-}
-
-.description {
-  opacity: $color-opacity;
+.button {
+  margin-top: $offset;
 }

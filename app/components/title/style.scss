@@ -1,0 +1,26 @@
+@import "../../globals";
+$title-background-color: #ccc;
+$title-min-height: 40vh;
+
+.root {
+  display: flex;
+  min-height: $title-min-height;
+  padding: ($unit * 6.4) 0;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  color: WHITE;
+  text-align: center;
+  background: $background-header;
+  background-color: $title-background-color;
+  overflow: hidden;
+}
+
+.caption {
+  margin-top: $offset;
+}
+
+.description {
+  margin: $offset 0;
+  opacity: $color-opacity;
+}

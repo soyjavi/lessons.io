@@ -3,6 +3,7 @@ import React from 'react';
 import style from './style';
 
 class Input extends React.Component {
+
   static propTypes = {
     className: React.PropTypes.string,
     multiline: React.PropTypes.bool,
@@ -20,6 +21,7 @@ class Input extends React.Component {
     const { className, multiline, type, value, ...others} = this.props;
 
     const properties = {
+      others,
       className: `${style.root} ${className}`,
       type,
       value

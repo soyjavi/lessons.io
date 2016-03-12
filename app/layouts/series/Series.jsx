@@ -8,16 +8,8 @@ import C from '../../constants'
 
 const Landing = props => {
   return (
-    <section data-component-layout='finder' className={style.root}>
-      <Title caption={C.SITE.TITLE} className={style.title} description={C.SITE.DESCRIPTION}>
-        <Button
-          href='/join'
-          caption='Unlock the knowledge'
-          legend='click here to level up'
-          accent
-          className={style.button}
-        />
-      </Title>
+    <section data-component-layout='series' >
+      <Title caption='Series disponibles' description='Lorem ipsum...' />
     </section>
   );
 };

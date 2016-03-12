@@ -1,10 +1,11 @@
 @import "../../globals";
 
 .root {
+  display: inline-block;
   padding: $offset (2 * $offset);
   color: $white;
-  border-radius: .35 * $unit;
   border: none;
+  border-radius: .35 * $unit;
   > * {
     display: block;
   }

@@ -3,14 +3,14 @@
 C = require '../common/constants'
 # -- ISOMORPHIC
 # ReactDOM = require 'react-dom/server'
-# Subscribe = require('../app/layouts/subscribe').default
+# Unknown = require('../app/layouts/unknown').default
 # -- /ISOMORPHIC
 
 module.exports = (zen) ->
 
   zen.get '/', (request, response, next) ->
     # -- ISOMORPHIC
-    # markup = ReactDOM.renderToString Subscribe(caption: 'Hello World')
+    # markup = ReactDOM.renderToString Unknown(caption: 'Hello World')
     # -- /ISOMORPHIC
     bindings =
       page: 'subscribe'
@@ -23,7 +23,7 @@ module.exports = (zen) ->
     response.page 'index', bindings, ['partial.example', 'partial.session']
 
   zen.get '/:page', (request, response, next) ->
-    if request.parameters.page in ['join']
+    if request.parameters.page in ['join', 'sign_in', 'series']
       bindings =
         page: request.parameters.page
         title: C.PAGE.TITLE
