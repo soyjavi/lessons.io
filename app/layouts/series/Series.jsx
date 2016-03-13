@@ -26,6 +26,15 @@ const Series = props => {
             title='Aprende Redux'
             url='http://'
           />
+
+          <Item
+            lessons={12}
+            level='principiante'
+            thumbnail='https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ffacebook.github.io%2Freact%2Fimg%2Flogo_og.png&f=1'
+            title='Aprende React'
+            url='aprender-react'
+            disabled
+          />
         </div>
       </section>
     </article>

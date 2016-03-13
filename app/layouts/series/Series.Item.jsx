@@ -8,7 +8,7 @@ const SeriesItem = props => {
     backgroundImage: `url(${props.thumbnail})`
   };
   return (
-    <Link to={`/series/${props.url}`}>
+    <Link to={`/series/${props.url}`} className={props.disabled ? style.disabled : null}>
       <div className={style.root}>
         <figure className={style.thumbnail} style={stylesheet}>
           <small className={style.level}>{props.level}</small>
@@ -26,6 +26,7 @@ const SeriesItem = props => {
 };
 
 SeriesItem.propTypes = {
+  disabled: React.PropTypes.bool,
   lessons: React.PropTypes.number,
   level: React.PropTypes.string,
   thumbnail: React.PropTypes.string,

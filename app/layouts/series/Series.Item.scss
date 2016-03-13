@@ -2,10 +2,19 @@
 $item-size: 25.6 * $unit;
 $item-offset: $unit;
 
+.disabled {
+  pointer-events: none;
+  filter: grayscale(100%);
+  .root {
+    color: $text-secondary;
+    background-color: $background-color;
+  }
+}
+
 .root {
   width: $item-size;
   margin: $offset;
-  color: $black;
+  color: $text;
   background: $white;
   box-shadow: 0 0 ($unit / 10) rgba(0,0,0,.25);
 }
