@@ -12,21 +12,20 @@ module.exports = (zen) ->
     # -- ISOMORPHIC
     # markup = ReactDOM.renderToString Unknown(caption: 'Hello World')
     # -- /ISOMORPHIC
-    bindings =
-      page: 'subscribe'
-      title: C.PAGE.TITLE
-      example:
-        subdomain: request.parameters.subdomain
-      session: request.session
-      mobile: request.mobile
-      ip: request.ip
-    response.page 'index', bindings, ['partial.example', 'partial.session']
+    _page request, response
 
   zen.get '/:page', (request, response, next) ->
     if request.parameters.page in ['join', 'sign_in', 'series']
-      bindings =
-        page: request.parameters.page
-        title: C.PAGE.TITLE
-      response.page 'index', bindings
+      _page request, response
     else
       response.redirect '/'
+
+  zen.get '/series/:id', (request, response, next) ->
+    _page request, response
+
+_page = (request, response) ->
+  bindings =
+    page: request.parameters.page
+    session: request.session
+    title: C.PAGE.TITLE
+  response.page 'index', bindings

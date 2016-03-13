@@ -10,21 +10,23 @@ const Series = props => {
     <article>
       <Title caption='Series disponibles' description='Lorem ipsum...' />
       <section className={style.root}>
-        <Item
-          lessons={12}
-          level='principiante'
-          thumbnail='http://soyjavi.com/assets/images/soyjavi.jpg'
-          title='Aprende React'
-          url='/serie/aprender-react'
-        />
+        <div className={style.wrapper}>
+          <Item
+            lessons={12}
+            level='principiante'
+            thumbnail='https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ffacebook.github.io%2Freact%2Fimg%2Flogo_og.png&f=1'
+            title='Aprende React'
+            url='aprender-react'
+          />
 
-        <Item
-          lessons={12}
-          level='intermedio'
-          thumbnail='http://'
-          title='Aprende Redux'
-          url='http://'
-        />
+          <Item
+            lessons={12}
+            level='intermedio'
+            thumbnail='http://'
+            title='Aprende Redux'
+            url='http://'
+          />
+        </div>
       </section>
     </article>
   );

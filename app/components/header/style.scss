@@ -1,7 +1,5 @@
 @import "../../globals";
-
-$header-height: $unit * 7.2;
-$header-logo-size: $unit * 5.4;
+$header-logo-size: 5.4 * $unit;
 $header-link-height: $header-height / 2;
 
 .root {
@@ -10,15 +8,16 @@ $header-link-height: $header-height / 2;
   display: flex;
   width: 100vw;
   height: $header-height;
-  align-items: center;
-  padding: 0 $offset;
   color: white;
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .brand {
   display: flex;
   align-items: center;
-  margin: 0 $unit;
   color: white;
 }
 
@@ -41,7 +40,7 @@ $header-link-height: $header-height / 2;
   line-height: $header-link-height;
   opacity: $color-opacity;
   & > a {
-    margin: 0 (2 * $unit);
+    margin-left: 2 * $offset;
     font-weight: $font-weight-bold;
     color: white;
   }

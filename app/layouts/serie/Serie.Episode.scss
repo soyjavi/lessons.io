@@ -1,0 +1,25 @@
+@import "../../globals";
+
+.root {
+  display: flex;
+  align-items: center;
+  padding: $offset;
+  color: $text;
+  background-color: $white;
+  border-bottom: solid 1px darken($background-color, 10%);
+  &:hover {
+    background-color: $text-secondary;
+    &, .number {
+      color: $white;
+    }
+  }
+  .number {
+    width: (2 * $offset);
+    font-size: $font-size-tiny;
+    color: $text-secondary;
+    text-indent: ($offset / 2);
+  }
+  .title {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,59 @@
+@import "../../globals";
+$serie-thumbnail-size: 20 * $unit;
+
+.root {
+  background-color: $background-color;
+}
+
+.title {
+  text-align: left;
+  > * {
+    display: flex;
+    flex-direction: row;
+  }
+  .serieThumbnail {
+    min-width: $serie-thumbnail-size;
+    height: $serie-thumbnail-size;
+    margin-top: $offset;
+    margin-right: $offset * 3;
+    background-color: $background-color;
+    background-size: cover;
+    border-radius: $border-radius;
+  }
+}
+
+.preview {
+  max-width: 60%;
+  .description {
+    margin: $offset 0;
+    opacity: $color-opacity;
+  }
+}
+
+.info {
+  padding: $offset 0;
+  background-color: $white;
+  box-shadow: 0 1px darken($background-color, 10%);
+  .wrapper {
+    display: flex;
+    small {
+      margin: 0 (2 * $offset) 0 ($unit / 2);
+      font-size: $font-size-tiny;
+      color: $text-secondary;
+    }
+  }
+}
+
+.content {
+  padding: (2 * $offset) 0;
+  background-color: $background-color-gradient;
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .episodes {
+    width: 75%;
+    padding: (2 * $offset) 0  0 0;
+  }
+}

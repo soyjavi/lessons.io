@@ -7,19 +7,19 @@ import LayoutLanding from './layouts/landing';
 import LayoutJoin from './layouts/join';
 import LayoutSignIn from './layouts/sign_in';
 import LayoutUnknown from './layouts/unknown';
-import SeriesUnknown from './layouts/series';
+import LayoutSeries from './layouts/series';
+import LayoutSerie from './layouts/serie';
 import commons from './commons'
 
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path='/' component={LayoutApp}>
       <IndexRoute component={LayoutLanding} />
-      <Route path='/join' component={LayoutJoin}/>
-      <Route path='/sign_in' component={LayoutSignIn}/>
-      <Route path='series' component={SeriesUnknown}>
-        <Route path='/serie/:id' component={LayoutUnknown} />
-        <Route path='/serie/:id/:lesson' component={LayoutUnknown} />
-      </Route>
+      <Route path='join' component={LayoutJoin}/>
+      <Route path='sign_in' component={LayoutSignIn}/>
+      <Route path='series' component={LayoutSeries} />
+      <Route path='series/:serie' component={LayoutSerie} />
+      <Route path='series/:serie/episodes/:episode' component={LayoutUnknown} />
       <Route path='*' component={LayoutUnknown}/>
     </Route>
   </Router>

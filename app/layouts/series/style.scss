@@ -2,5 +2,7 @@
 
 .root {
   padding: $offset;
-  display: flex;
+  .wrapper {
+    display: flex;
+  }
 }

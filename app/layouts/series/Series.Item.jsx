@@ -8,7 +8,7 @@ const SeriesItem = props => {
     backgroundImage: `url(${props.thumbnail})`
   };
   return (
-    <Link to={props.url}>
+    <Link to={`/series/${props.url}`}>
       <div className={style.root}>
         <figure className={style.thumbnail} style={stylesheet}>
           <small className={style.level}>{props.level}</small>
